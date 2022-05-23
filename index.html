@@ -11,7 +11,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js" type="module" defer></script>
 </head>
 <body>
    <header>
@@ -30,7 +30,7 @@
        </button>
      </div>
    </header>
-   <main>
+   <main id="app">
      <table>
        <thead>
          <tr>
@@ -52,9 +52,24 @@
           <td class="repositories">123</td>
           <td class="followers">223</td>
           <td class="btn-remove">
+            <button class="remove">Remover</button>
+          </td>
+         </tr>
+         <tr>
+          <td class="user">
+            <img src="https://github.com/jdeymisson.png" alt="Imagem do perfil do Johnny Deymisson">
+            <div>
+              <p class="name">Johnny Deymisson</p>
+              <span>/jdeymisson</span>
+            </div>
+          </td>
+          <td class="repositories">123</td>
+          <td class="followers">223</td>
+          <td class="btn-remove">
             <button>Remover</button>
           </td>
          </tr>
+         
        </tbody>
      </table>
    </main>
