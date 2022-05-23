@@ -14,6 +14,9 @@
   --ff-color: #E1E1E6;
   --ff-color-remove: #F75A68;
   --ff-color-place: #7C7C8A;
+
+  --btn-color: #065E7C;
+  --btn-hover: #fff;
 }
 
 body {
@@ -28,6 +31,155 @@ body * {
 header, main {
   max-width: 1120px;
   margin: 0 auto;
+}
 
-  border: 1px solid red;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10rem 1rem 9rem;
+}
+
+header .search {
+  display: flex;
+  align-items: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.search input {
+  width: 46.2rem;
+  height: 4.5rem;
+  padding: 1.6rem;
+
+  border: 0;
+  border-radius: 5px;
+
+  background: #06181C;
+
+  font-size: 1.6rem;
+  line-height: 1.6rem; 
+  color: var(--ff-color);
+}
+
+.search button {
+  display: flex;
+  align-items: center;
+  gap: 8.75px;
+
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  padding: 1.2rem 3.2rem;
+  color: var(--ff-color);
+
+  background: var(--btn-color);
+  border: 0;
+  border-radius: 5px;
+
+  transition: background .3s ease;
+}
+
+.search button:hover {
+  background: var(--btn-hover);
+  color: var(--btn-color);
+}
+
+.search button:hover path {
+  fill: #065E7C;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-radius: 12px;
+  border: 1px solid #0c3139;
+
+  color: var(--ff-color);
+}
+
+table tr:nth-child(even) td {
+  background: #06181C;
+  border-top: 1px solid #0c3139;
+  border-bottom: 1px solid #0c3139;
+}
+
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+table thead th:first-child {
+  border-top-left-radius: 12px;
+}
+
+table thead th:last-child {
+  border-top-right-radius: 10px;
+}
+
+table thead th {
+  padding: 1.6rem 4rem;
+  background: #092D38;
+
+  text-align: left;
+  font-size: 2rem;
+  line-height: 3.2rem;
+}
+
+table tbody td{
+  padding: 2.4rem 4rem;
+}
+
+td.user {
+  display: flex;
+  gap: 1.6rem;
+}
+
+td.user p {
+  font-size: 2rem;
+  line-height: 160%;
+  font-weight: bold;
+}
+
+td.user span {
+  font-size: 2rem;
+  line-height: 160%;
+}
+
+.user img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.btn-remove button {
+  background: none;
+  border: 0;
+
+  font-weight: bold;
+  color: var(--ff-color-remove);
+  cursor: pointer;
 }
