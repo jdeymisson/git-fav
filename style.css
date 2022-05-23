@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --bg-color: #000;
+  --bg-th: #092D38;
+  --bg-odd: rgba(6, 22, 27, 0.5);
+  --bg-even: #06181C;
+  --ff-color: #E1E1E6;
+  --ff-color-remove: #F75A68;
+  --ff-color-place: #7C7C8A;
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: var(--bg-color);
+}
+
+body * {
+  font-family: 'Roboto', sans-serif;
+}
+
+header, main {
+  max-width: 1120px;
+  margin: 0 auto;
+
+  border: 1px solid red;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cria sua lista personalizada com os perfis que você adora no Github">
+  <title>GitFav</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+   <header>
+     <img src="images/Gitfav.svg" alt="Logo da GitFav">
+
+     <div class="search">
+       <div class="input-search">
+        <label for="search">Digite o Github username que quer favoritar</label>
+        <input type="search" name="search" id="search" placeholder="Digite o Github username que quer favoritar">
+       </div>
+       <button>
+         <img src="images/star.svg" alt="Icone de estrela no botão de pesquisar">
+         Favoritar
+       </button>
+     </div>
+   </header>
+
+   <main>
+     <table>
+       <thead>
+         <tr>
+           <th>Usuário</th>
+           <th>Repositories</th>
+           <th>Followers</th>
+           <th>Ação</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+          <td class="user">
+            <img src="https://github.com/jdeymisson.png" alt="Imagem do perfil do Johnny Deymisson">
+            <p class="name">Johnny Deymisson</p>
+            <span>/jdeymisson</span>
+          </td>
+          <td class="repositories">123</td>
+          <td class="followers">223</td>
+          <td class="btn-remove">
+            <button>Remover</button>
+          </td>
+         </tr>
+       </tbody>
+     </table>
+   </main>
+</body>
+</html>
