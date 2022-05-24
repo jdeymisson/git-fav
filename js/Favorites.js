@@ -3,8 +3,7 @@ import { GitUser } from "./Gituser.js";
 export class Favorites {
   constructor(root) {
     this.root = document.querySelector(root);
-
-    this.add();
+    this.load();
   };
 
   load() {
@@ -13,6 +12,12 @@ export class Favorites {
 
   async add(username) {
     try {
+      const userExists = this.entries.find(entry => entry.login === username);
+
+      if(userExists) {
+        throw new Error('Usuário já cadastrado!');
+      }
+
       const user = await GitUser.search(username);
 
       if(user.login === undefined) {
@@ -20,11 +25,41 @@ export class Favorites {
       };
 
       this.entries = [user, ...this.entries];
+
+      const elementRegister = document.querySelector('.content');
+
+    if(this.entries.length > 0) {
+      elementRegister.classList.remove('not-register');
+      elementRegister.classList.add('register');
+      };
+
+      this.save(this.entries);
       this.update();
+
     } catch(error) {
       alert(error.message);
     };
   };
+
+  save(entry){
+    localStorage.setItem('@github-favorites: ', JSON.stringify(this.entries));
+  };
+
+  delete(user) {
+    
+   const newEntries =  this.entries.filter((entry) => user.login !== entry.login);
+  
+   this.entries = newEntries;
+
+   const elementRegister = document.querySelector('.content');
+   if(this.entries.length <= 0) {
+    elementRegister.classList.remove('register');
+    elementRegister.classList.add('not-register');
+  }
+
+   this.update();
+   this.save();
+  }
 };
 
 export class FavoritesView extends Favorites {
@@ -49,7 +84,7 @@ export class FavoritesView extends Favorites {
       row.querySelector('.user p').textContent = `${user.name}`;
       row.querySelector('.user span').textContent = `${user.login}`;
       row.querySelector('.repositories').textContent = `${user.public_repos}`;
-      row.querySelector('.followers').textContent = `${user.following}`;
+      row.querySelector('.followers').textContent = `${user.followers}`;
 
       row.querySelector('.remove').onclick = () => {
         const isOk = confirm('Deseja deleta essa linha mesmo?');
@@ -67,7 +102,7 @@ export class FavoritesView extends Favorites {
 
     addButton.onclick = () => {
       const { value } = document.querySelector('.search input');
-
+      
       this.add(value);
     };
   };
@@ -92,10 +127,12 @@ export class FavoritesView extends Favorites {
       </td>
       <td class="repositories">123</td>
       <td class="followers">223</td>
-      <td class="btn-remove">
+      <td class="remove">
         <button>Remover</button>
       </td>
     `
     return row;
   };
+
+  
 };

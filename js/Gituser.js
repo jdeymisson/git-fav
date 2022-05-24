@@ -1,8 +1,8 @@
 export class GitUser {
   static search(username) {
-    const endpoid = `https://api.github.com/users/${username}`;
+    const endpoint = `https://api.github.com/users/${username}`;
 
-    return fetch(endpoid)
+    return fetch(endpoint)
            .then(data => data.json())
            .then(({ login, name, public_repos, followers }) => ({
              login,

@@ -118,8 +118,33 @@ table {
   border: 1px solid #0c3139;
 
   color: var(--ff-color);
+
+  position: relative;
 }
 
+.register {
+  display: none;
+}
+
+.not-register {
+  position: absolute;
+  top: 70%;
+  left: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.not-register img {
+  height: 100px;
+}
+.not-register h1 {
+  color: var(--ff-color-place);
+
+  font-size: 4rem;
+  font-family: 'Roboto Mono';
+}
 table tr:nth-child(even) td {
   background: #06181C;
   border-top: 1px solid #0c3139;
@@ -150,6 +175,9 @@ table thead th {
   font-size: 2rem;
   line-height: 3.2rem;
 }
+table tbody {
+  position: relative;
+}
 
 table tbody td{
   padding: 2.4rem 4rem;
@@ -177,7 +205,11 @@ td.user span {
   border-radius: 50%;
 }
 
-.btn-remove button {
+a {
+  text-decoration: none;
+  color: var(--ff-color);
+}
+.remove button {
   background: none;
   border: 0;
 
